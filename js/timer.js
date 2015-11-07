@@ -8,6 +8,3 @@ var timer = setInterval(function () {
     document.getElementById("minutes").innerHTML = pad(parseInt(sec / 60, 10));
 }, 1000);
 
-setTimeout(function () {
-    clearInterval(timer);
-}, 11000);
