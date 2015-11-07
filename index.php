@@ -6,5 +6,5 @@
  * Time: 1:53 AM
  */
 
-header( 'Location: street-race-hack.azurewebsites.net/streetrace.html' );
+header( 'Location: http://street-race-hack.azurewebsites.net/streetrace.html' );
 exit();
