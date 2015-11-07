@@ -46,16 +46,8 @@
         <div class="card-panel white">
 	<h4><span id="minutes">00</span>:<span id="seconds">00</span></h4>
 	
-	      <div class="col s12 m4">
-				<h4>Distance Away:</h4>
-	</div>
-	<div class="col s12 m4">
-				<h4>Direction:</h4>
-	</div>
+				<h4>Distance Away: <div id="position-cell"></div></h4> 
 	
-	   <div class="col s12 m4">
-				<h4>Direction:</h4>
-	</div>
          
 		   <div  style="height:500px; width:100%;" id="map"></div>
     <script type="text/javascript">
@@ -67,7 +59,15 @@ function initMap() {
     position: {lat: 42.345573, lng: -71.098326},
     pov: { heading: 34, pitch: 10 }
   });
-}
+
+  
+  
+  map.addListener('position_changed', function() {
+      var positionCell = document.getElementById('position-cell');
+      positionCell.innerHTML = map.getPosition() + '';
+  });
+
+  }
 
     </script>
     <script async defer
