@@ -1,25 +1,13 @@
-window.onload=function() {
-  // Month,Day,Year,Hour,Minute,Second
-  
-  var d = new Date();
-	
-  upTime('jan,01,2014,00:00:00'); // ****** Change this line!
+var sec = 0;
+
+function pad(val) {
+    return val > 9 ? val : "0" + val;
 }
-function upTime(countTo) {
-  now = new Date();
-  countTo = new Date(countTo);
-  difference = (now-countTo);
+var timer = setInterval(function () {
+    document.getElementById("seconds").innerHTML = pad(++sec % 60);
+    document.getElementById("minutes").innerHTML = pad(parseInt(sec / 60, 10));
+}, 1000);
 
-  days=Math.floor(difference/(60*60*1000*24)*1);
-  hours=Math.floor((difference%(60*60*1000*24))/(60*60*1000)*1);
-  mins=Math.floor(((difference%(60*60*1000*24))%(60*60*1000))/(60*1000)*1);
-  secs=Math.floor((((difference%(60*60*1000*24))%(60*60*1000))%(60*1000))/1000*1);
-
-  document.getElementById('days').firstChild.nodeValue = days;
-  document.getElementById('hours').firstChild.nodeValue = hours;
-  document.getElementById('minutes').firstChild.nodeValue = mins;
-  document.getElementById('seconds').firstChild.nodeValue = secs;
-
-  clearTimeout(upTime.to);
-  upTime.to=setTimeout(function(){ upTime(countTo); },1000);
-}
+setTimeout(function () {
+    clearInterval(timer);
+}, 11000);
